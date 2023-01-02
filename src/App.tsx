@@ -1,5 +1,5 @@
 import './App.css';
-import Greetings from './useState/Greetings';
+import Greetings from './hooks/Greetings';
 
 function App() {
   return <Greetings defaultName="James Bond" />;

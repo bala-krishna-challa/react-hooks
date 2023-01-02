@@ -1,11 +1,22 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 
 interface Props {
   defaultName?: string;
 }
 
-const Greetings: React.FC<Props> = ({ defaultName }) => {
-  const [name, setName] = useState(defaultName || '');
+const getLazilyInitializedValue = (val: string) => {
+  return sessionStorage.getItem('name') || val;
+};
+
+const Greetings: React.FC<Props> = ({ defaultName = '' }) => {
+  const [name, setName] = useState(() =>
+    getLazilyInitializedValue(defaultName)
+  );
+
+  useEffect(() => {
+    sessionStorage.setItem('name', name);
+  }, [name]);
+
   const nameChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
   };
