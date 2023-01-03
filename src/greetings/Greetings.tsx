@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from 'react';
 import RadioButtonGroup from '../components/RadioButtonGroup';
-import { TXT_INITIAL, TXT_NAME } from './constants';
-import useLocalStorageState from './useLocalStorageState';
+import { TXT_INITIAL, TXT_NAME } from '../constants';
+import useLocalStorageState from '../hooks/useLocalStorageState';
 
 type Person = {
   name: string;
