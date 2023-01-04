@@ -1,8 +1,8 @@
 import './App.css';
-import Greetings from './greetings/Greetings';
+import Game from './tic-tac-toe/Game';
 
 function App() {
-  return <Greetings defaultName="James Bond" />;
+  return <Game />;
 }
 
 export default App;
